@@ -1,0 +1,7 @@
+{
+  "name": "Land Investigate",
+  "description": "Real estate verification and intelligence platform in Nigeria. Investigate before you invest.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
