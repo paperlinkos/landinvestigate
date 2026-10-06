@@ -28,9 +28,22 @@ async function startServer() {
     });
   }
 
-  app.listen(Number(port), '0.0.0.0', () => {
-    console.log(`Server running on http://0.0.0.0:${port}`);
+  const server = app.listen(Number(port), '0.0.0.0', () => {
+    console.log(`Server running on http://localhost:${port}`);
+  });
+
+  server.on('error', (err: any) => {
+    if (err.code === 'EADDRINUSE' && !process.env.PORT) {
+      const fallbackPort = 3001;
+      console.log(`Port ${port} in use, falling back to http://localhost:${fallbackPort}`);
+      app.listen(fallbackPort, '0.0.0.0', () => {
+        console.log(`Server running on http://localhost:${fallbackPort}`);
+      });
+    } else {
+      console.error('Server error:', err);
+    }
   });
 }
 
 startServer();
+

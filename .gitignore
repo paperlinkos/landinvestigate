@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+.env.*
+*.log
+.DS_Store
+
+# local scratch screenshots (not used by the app)
+public/images/page-screenshot.png
+public/images/diaspora-screenshot.png
